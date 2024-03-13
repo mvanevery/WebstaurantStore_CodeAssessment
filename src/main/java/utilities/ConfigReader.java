@@ -1,14 +1,18 @@
-package com.WebstaurantStore.utilities;
+package utilities;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class configReader {
-    public static Properties properties;
+public class ConfigReader {
+    private Properties properties;
 
-    public static void readPropertyFile() {
+    /**
+     * This is used to load the properties from the config.properties file.
+     * @return it returns the Properties property object
+     * */
+    public Properties readPropertyFile() {
         properties = new Properties();
         try {
             FileInputStream file = new FileInputStream("config.properties");
@@ -19,9 +23,10 @@ public class configReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return properties;
     }
 
-    public static String getProperty(String keyword) {
+    public String getProperty(String keyword) {
         return properties.getProperty(keyword);
     }
 

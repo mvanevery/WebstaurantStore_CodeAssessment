@@ -5,47 +5,45 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class browserDriver {
+    public WebDriver driver;
+    public browserDriver(){
+       String browserType;
+       browserType = configReader.getProperty("browser");
 
-    private browserDriver(){
+       if(browserType == "chrome") {
+           WebDriverManager.chromedriver().setup();
+           driver = new ChromeDriver();
+       }
     }
 
-    private static ThreadLocal<WebDriver> driverGroup = new ThreadLocal<>();
-
-    public static WebDriver getDriver() {
-        if(driverGroup.get() == null) {
-            String browserType = configReader.getProperty("browser");
-
-            switch(browserType) {
-
-                case "chrome":
-                    WebDriverManager.chromedriver().setup();
-                    driverGroup.set(new ChromeDriver());
-//                    driverGroup.get().manage().window().maximize();
-            }
-        }
-        return driverGroup.get();
-
+    public void close() {
+        this.driver.close();
     }
 
-    public static void closeDriver() {
-        if(driverGroup.get() != null) {
-            driverGroup.get().quit();
-            driverGroup.remove();
-        }
-    }
-
-
-//    public static WebDriver driver;
+//    public static ThreadLocal<WebDriver> driverGroup = new ThreadLocal<>();
 //
-//    public ChromeOptions options;
+//    public static WebDriver getDriver() {
+//        if(driverGroup.get() == null) {
+//            String browserType;
+//            browserType = configReader.getProperty("browser");
 //
-//    public browserDriver() {
-//        this.driver = driver;
-//        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/resources/drivers/chromedriver.exe");
-//        this.driver = new ChromeDriver();
+//            switch(browserType) {
+//
+//                case "chrome":
+//                    WebDriverManager.chromedriver().setup();
+//                    driverGroup.set(new ChromeDriver());
+////                    driverGroup.get().manage().window().maximize();
+//            }
+//        }
+//        return driverGroup.get();
+//
 //    }
-//
-//    public void close() {
-//        this.driver.close();
+
+//    public void closeDriver() {
+//        if(driverGroup.get() != null) {
+//            driverGroup.get().quit();
+//            driverGroup.remove();
+//        }
 //    }
+
 }

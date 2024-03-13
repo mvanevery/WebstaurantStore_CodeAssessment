@@ -12,28 +12,26 @@ public class BrowserDriver {
 
     public static ThreadLocal<WebDriver> driverGroup = new ThreadLocal<>();
 
-    public WebDriver startDrivers(String browserType){
+    public WebDriver startDrivers(String browser){
 
-//       browserType = ConfigReader.getProperty("browser");
-
-       if(browserType == "chrome") {
+       if(browser.equals("chrome")) {
            WebDriverManager.chromedriver().setup();
            driverGroup.set(new ChromeDriver());
        }
-       else if (browserType == "firefox") {
+       else if (browser.equals("firefox")) {
            WebDriverManager.firefoxdriver().setup();
            driverGroup.set(new FirefoxDriver());
        }
-       else if (browserType == "ie" || browserType == "internet explorer") {
+       else if (browser.equals("ie") || browser.equals("internet explorer")) {
            WebDriverManager.edgedriver().setup();
            driverGroup.set(new EdgeDriver());
        }
-       else if (browserType == "safari") {
+       else if (browser.equals("safari")) {
            WebDriverManager.safaridriver().setup();
            driverGroup.set(new SafariDriver());
        }
        else {
-           System.out.println("Please pass desired browser value: " + browserType);
+           System.out.println("Please pass desired browser value: " + browser);
        }
        getDriver().manage().deleteAllCookies();
        getDriver().manage().window().maximize();

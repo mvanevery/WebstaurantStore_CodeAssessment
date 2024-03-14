@@ -15,7 +15,7 @@ public class ShoppingCartPageSteps {
 
     @Then("User removes item from the cart")
     public void user_removes_item_from_cart(){
-
+        shoppingCartPage.emptyCart();
     }
 
     @Then("User validates item is no longer in the cart")

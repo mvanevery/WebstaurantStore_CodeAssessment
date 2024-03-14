@@ -1,6 +1,6 @@
 Feature: Code Assessment
 
-  @wip
+  @test
   Scenario: Code Assessment - User searches for an item, then adds it the cart, then removes it.
     Given User navigates to "www.webstaurantstore.com"
     Then Validate User is on the homepage

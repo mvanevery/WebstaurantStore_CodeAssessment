@@ -18,10 +18,4 @@ public class ShoppingCartPageSteps {
         shoppingCartPage.emptyCart();
     }
 
-
-
-
-
-
-
 }

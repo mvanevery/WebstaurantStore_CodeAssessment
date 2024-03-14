@@ -1,7 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.Given;
-import org.openqa.selenium.WebDriver;
+
 import pages.CommonPage;
 import utilities.BrowserDriver;
 

@@ -9,6 +9,6 @@ Feature: Code Assessment
     Then User adds product to the cart
     When User navigates to the cart
     Then User validates item is in the cart
-    Then User removes item from the cart
+    Then User removes item from the cart and verifies it is gone
 
 

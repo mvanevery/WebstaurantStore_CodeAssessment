@@ -13,15 +13,11 @@ public class ShoppingCartPageSteps {
         shoppingCartPage.validateShoppingCartItem();
     }
 
-    @Then("User removes item from the cart")
+    @Then("User removes item from the cart and verifies it is gone")
     public void user_removes_item_from_cart(){
         shoppingCartPage.emptyCart();
     }
 
-    @Then("User validates item is no longer in the cart")
-    public void user_validates_item_is_no_longer_in_the_cart(){
-
-    }
 
 
 

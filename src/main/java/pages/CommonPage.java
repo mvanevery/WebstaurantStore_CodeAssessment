@@ -8,18 +8,20 @@ import org.openqa.selenium.support.FindBy;
 import utilities.BrowserDriver;
 
 public class CommonPage {
-WebDriver driver;
 
-//Page Locators
-@FindBy(xpath = "//*[@data-testid='logo']")
-public WebElement homepageLogo;
+//---------------------------------------By Locators--------------------------------------------
 
+
+//------------------------------------Page Class Constructor-------------------------------------------
+    private WebDriver driver;
     public CommonPage(WebDriver driver) {
         this.driver = driver;
     }
 
-// Base Page Methods
-
+//------------------------------------Base Page Methods-----------------------------------------------
+    /**
+     * This simply launches the browser
+     * */
     public void openBrowser(String url) {
         driver.get("https://" + url);
     }

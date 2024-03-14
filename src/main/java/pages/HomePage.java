@@ -7,25 +7,20 @@ import org.openqa.selenium.support.FindBy;
 
 
 public class HomePage {
-    private WebDriver driver;
 
-    //Page Locators
+//-------------------------------------------By Locators---------------------------------------------
     private By homepageLogo = By.xpath("//*[@data-testid='logo'][1]");
     private By searchBox = By.id("searchval");
     private By searchBoxButton = By.xpath("//button[@value = 'Search']");
 
-   //Page class Constructor
-   public HomePage(WebDriver driver) {
+//----------------------------------------Page class Constructor-------------------------------------
+    private WebDriver driver;
+    public HomePage(WebDriver driver) {
        this.driver = driver;
    }
 
 
-//    @FindBy(xpath = "//*[@data-testid='logo'][1]")
-//    public WebElement homepageLogo;
-
-
-
-// Page Methods
+//---------------------------------------------Page Methods-----------------------------------------
 
     public void validateHomepage() {
         driver.findElement(homepageLogo).isDisplayed();
